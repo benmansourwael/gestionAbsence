@@ -23,10 +23,9 @@ public class SeanceCoursController {
 
 
     @GetMapping
-    public List<SeanceCours> getSeancesCours(SeanceCoursService seanceCours){
-        List<SeanceCours> seancesCours = new ArrayList<>();
-        seancesCours.add(new SeanceCours());
-        return seancesCours;
+    public List<SeanceCours> getSeancesCours(){
+
+        return seanceCoursService.getSeancesCours();
     }
 
     @PostMapping
