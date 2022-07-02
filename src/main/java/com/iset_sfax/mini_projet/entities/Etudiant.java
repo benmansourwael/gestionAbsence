@@ -26,6 +26,9 @@ public class Etudiant {
     private LocalDate dateNaissanceEtd;
     private String photoEtd;
     private String adresseMailEtd;
+
+
+
     private String numInscription;
 
     private String password;

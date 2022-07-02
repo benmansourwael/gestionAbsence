@@ -1,6 +1,7 @@
 package com.iset_sfax.mini_projet.controllers;
 
 import com.iset_sfax.mini_projet.dto.EnseignantDto;
+import com.iset_sfax.mini_projet.dto.post.EnseignantDtoPost;
 import com.iset_sfax.mini_projet.entities.Enseignant;
 import com.iset_sfax.mini_projet.services.EnseignantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class EnseignantController {
     }
 
     @PostMapping
-    public void addnewEnseignant(@RequestBody EnseignantDto enseignantDto){
-        enseignantService.addnewEnseignant(enseignantDto);
+    public void addnewEnseignant(@RequestBody EnseignantDtoPost enseignantDtoPost){
+        enseignantService.addnewEnseignant(enseignantDtoPost);
     }
 }

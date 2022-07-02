@@ -7,6 +7,7 @@
 //import com.iset_sfax.mini_projet.entities.Groupe;
 //import com.iset_sfax.mini_projet.repositories.DepartementRepository;
 //import org.springframework.boot.CommandLineRunner;
+//import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
 //
@@ -15,6 +16,7 @@
 //import java.util.List;
 //
 //@Configuration
+//@AutoConfigureOrder(1)
 //public class DepartementConfiguration {
 //
 //    @Bean

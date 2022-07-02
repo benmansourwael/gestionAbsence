@@ -4,12 +4,16 @@
 //import com.iset_sfax.mini_projet.repositories.DepartementRepository;
 //import com.iset_sfax.mini_projet.repositories.GroupeRepository;
 //import org.springframework.boot.CommandLineRunner;
+//import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 //import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
 //
 //import java.time.LocalDate;
 //import java.util.ArrayList;
 //import java.util.List;
 //
+//@Configuration
+//@AutoConfigureOrder(2)
 //public class GroupeConfiguration {
 //    @Bean
 //    CommandLineRunner commandLineRunner(GroupeRepository groupeRepository, DepartementRepository departementRepository){

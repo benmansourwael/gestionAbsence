@@ -7,6 +7,7 @@
 //import com.iset_sfax.mini_projet.repositories.DepartementRepository;
 //import com.iset_sfax.mini_projet.repositories.EtudiantRepository;
 //import com.iset_sfax.mini_projet.repositories.GroupeRepository;
+//import com.iset_sfax.mini_projet.util.DateUtils;
 //import org.joda.time.DateTime;
 //import org.joda.time.DateTimeZone;
 //import org.joda.time.format.DateTimeFormat;
@@ -60,7 +61,7 @@
 //                LocalDate ddn = dateUtils.toLocalDate(dtf.parseDateTime(results.getJSONObject(i).getJSONObject("dob").getString("date").substring(0, results.getJSONObject(i).getJSONObject("dob").getString("date").indexOf('.')) + "Z"));
 //                String photo = results.getJSONObject(i).getJSONObject("picture").getString("thumbnail");
 //                String email = results.getJSONObject(i).getString("email");
-//                String numInscription = "10";
+//                String numInscription = "00000000";
 //                LocalDate ddi = LocalDate.parse("2022-09-15");
 //                int au = 2022;
 //                Set<Assiduite> assiduiteSet = new HashSet<Assiduite>();
@@ -77,8 +78,8 @@
 //                etudiant.setDateInscription(ddi);
 //                etudiant.setAu(au);
 //                etudiant.setAssiduites(assiduiteSet);
-//                etudiant.setDepartement(departement);
-//                etudiant.setGroupe(groupe);
+//                etudiant.setDepartement(departementRepository.findDepartementByIdDep(1));
+//                etudiant.setGroupe(groupeRepository.findGroupeByIdGroupe(1));
 //            }
 //            etudiantList.add(etudiant);
 //
@@ -105,24 +106,6 @@
 ////    }
 ////}
 //
-//    class DateUtils {
 //
-//        /**
-//         * Convert {@link java.time.LocalDate} to {@link org.joda.time.DateTime}
-//         */
-//        public DateTime toDateTime(LocalDate localDate) {
-//            return new DateTime(DateTimeZone.UTC).withDate(
-//                    localDate.getYear(), localDate.getMonthValue(), localDate.getDayOfMonth()
-//            ).withTime(0, 0, 0, 0);
-//        }
-//
-//        /**
-//         * Convert {@link org.joda.time.DateTime} to {@link java.time.LocalDate}
-//         */
-//        public LocalDate toLocalDate(DateTime dateTime) {
-//            DateTime dateTimeUtc = dateTime.withZone(DateTimeZone.UTC);
-//            return LocalDate.of(dateTimeUtc.getYear(), dateTimeUtc.getMonthOfYear(), dateTimeUtc.getDayOfMonth());
-//        }
-//    }
 //}
 //

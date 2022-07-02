@@ -1,6 +1,7 @@
 package com.iset_sfax.mini_projet.services;
 
 import com.iset_sfax.mini_projet.dto.EtudiantDto;
+import com.iset_sfax.mini_projet.dto.post.EtudiantDtoPost;
 import com.iset_sfax.mini_projet.entities.Etudiant;
 import com.iset_sfax.mini_projet.repositories.DepartementRepository;
 import com.iset_sfax.mini_projet.repositories.EtudiantRepository;
@@ -35,26 +36,26 @@ public class EtudiantService {
 
 
 
-    public void addnewEtudiant(EtudiantDto etudiantDto) throws NoSuchAlgorithmException {
+    public void addnewEtudiant(EtudiantDtoPost etudiantDtoPost) throws NoSuchAlgorithmException {
 
-        Optional<Etudiant> etudiantByEmail = etudiantRepository.findEtudiantByAdresseMailEtd(etudiantDto.getAdresseMailEtd());
+        Optional<Etudiant> etudiantByEmail = etudiantRepository.findEtudiantByAdresseMailEtd(etudiantDtoPost.getAdresseMailEtd());
         if (etudiantByEmail.isPresent()){
             throw new IllegalStateException("Adresse email existante");
         }
         Etudiant etudiant = new Etudiant();
-        etudiant.setNumEtd(etudiantDto.getId());
-        etudiant.setNomEtd(etudiantDto.getNomEtd());
-        etudiant.setPrenomEtd(etudiantDto.getPrenomEtd());
-        etudiant.setDateNaissanceEtd(LocalDate.parse(String.valueOf(etudiantDto.getDateNaissanceEtd())));
-        etudiant.setPhotoEtd(etudiantDto.getPhotoEtd());
+        etudiant.setNumEtd(etudiantDtoPost.getId());
+        etudiant.setNomEtd(etudiantDtoPost.getNomEtd());
+        etudiant.setPrenomEtd(etudiantDtoPost.getPrenomEtd());
+        etudiant.setDateNaissanceEtd(LocalDate.parse(String.valueOf(etudiantDtoPost.getDateNaissanceEtd())));
+        etudiant.setPhotoEtd(etudiantDtoPost.getPhotoEtd());
         etudiant.setAdresseMailEtd(etudiant.getAdresseMailEtd());
-        etudiant.setNumInscription(etudiantDto.getNumInscription());
-        etudiant.setPassword(Util.toSha256(etudiantDto.getPassword()));
+        etudiant.setNumInscription(etudiantDtoPost.getNumInscription());
+        etudiant.setPassword(Util.toSha256(etudiantDtoPost.getPassword()));
 
-        etudiant.setDateInscription(LocalDate.parse(String.valueOf(etudiantDto.getDateInscription())));
-        etudiant.setAu(etudiantDto.getAu());
-        etudiant.setDepartement(departementRepository.findDepartementByIdDep(etudiantDto.getIdDepartement()));
-        etudiant.setGroupe(groupeRepository.findGroupeByIdGroupe(etudiantDto.getIdGroupe()));
+        etudiant.setDateInscription(LocalDate.parse(String.valueOf(etudiantDtoPost.getDateInscription())));
+        etudiant.setAu(etudiantDtoPost.getAu());
+        etudiant.setDepartement(departementRepository.findDepartementByIdDep(etudiantDtoPost.getIdDepartement()));
+        etudiant.setGroupe(groupeRepository.findGroupeByIdGroupe(etudiantDtoPost.getIdGroupe()));
         etudiantRepository.save(etudiant);
     }
     public List<EtudiantDto> getEtudiants(){

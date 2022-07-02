@@ -1,6 +1,8 @@
 package com.iset_sfax.mini_projet.services;
 
 import com.iset_sfax.mini_projet.dto.EnseignantDto;
+import com.iset_sfax.mini_projet.dto.post.EnseignantDtoPost;
+import com.iset_sfax.mini_projet.entities.Departement;
 import com.iset_sfax.mini_projet.entities.Enseignant;
 import com.iset_sfax.mini_projet.repositories.DepartementRepository;
 import com.iset_sfax.mini_projet.repositories.EnseignantRepository;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EnseignantService {
@@ -26,40 +29,43 @@ public class EnseignantService {
     public List<EnseignantDto> getEnseignants(){
 
         List<Enseignant> enseignantList = enseignantRepository.findAll();
-        List<EnseignantDto> enseignantDtoList = new ArrayList<>();
+        List<EnseignantDto> enseignantDtoPostList = new ArrayList<>();
         for (Enseignant enseignant:enseignantList
              ) {
-            EnseignantDto enseignantDto = new EnseignantDto();
-            enseignantDto.setNumEns(enseignant.getNumEns());
-            enseignantDto.setNom(enseignant.getNom());
-            enseignantDto.setPrenom(enseignant.getPrenom());
-            enseignantDto.setDateNaissance(String.valueOf(enseignant.getDateNaissance()));
-            enseignantDto.setPhoto(enseignant.getPhoto());
-            enseignantDto.setAdresseMailEns(enseignant.getAdresseMailEns());
-            enseignantDto.setDateEmbauche(String.valueOf(enseignant.getDateEmbauche()));
-            enseignantDto.setGrade(enseignant.getGrade());
-            enseignantDto.setIdDepartement(enseignant.getDepartement().getIdDep());
-            enseignantDtoList.add(enseignantDto);
+
+            EnseignantDto enseignantDtoPost = new EnseignantDto();
+            enseignantDtoPost.setNumEns(enseignant.getNumEns());
+            enseignantDtoPost.setNom(enseignant.getNom());
+            enseignantDtoPost.setPrenom(enseignant.getPrenom());
+            enseignantDtoPost.setDateNaissance(String.valueOf(enseignant.getDateNaissance()));
+            enseignantDtoPost.setPhoto(enseignant.getPhoto());
+            enseignantDtoPost.setAdresseMailEns(enseignant.getAdresseMailEns());
+            enseignantDtoPost.setDateEmbauche(String.valueOf(enseignant.getDateEmbauche()));
+            enseignantDtoPost.setGrade(enseignant.getGrade());
+            enseignantDtoPost.setIdDepartement(enseignant.getDepartement().getIdDep());
+            enseignantDtoPostList.add(enseignantDtoPost);
 
         }
 
-        return enseignantDtoList;
+        return enseignantDtoPostList;
 
     }
 
-    public void addnewEnseignant(EnseignantDto enseignantDto) {
+    public void addnewEnseignant(EnseignantDtoPost enseignantDtoPost) {
         Enseignant enseignant= new Enseignant();
-        enseignant.setNumEns(enseignantDto.getNumEns());
-        enseignant.setNom(enseignantDto.getNom());
-        enseignant.setPrenom(enseignantDto.getPrenom());
-        enseignant.setDateNaissance(LocalDate.parse(String.valueOf(enseignantDto.getDateNaissance())));
-        enseignant.setPhoto(enseignantDto.getPhoto());
-        enseignant.setAdresseMailEns(enseignantDto.getAdresseMailEns());
-        enseignant.setDateEmbauche(LocalDate.parse(String.valueOf(enseignantDto.getDateEmbauche())));
-        enseignant.setGrade(enseignantDto.getGrade());
-        enseignant.setDepartement(departementRepository.findDepartementByIdDep(enseignantDto.getIdDepartement()));
+        enseignant.setNumEns(enseignantDtoPost.getNumEns());
+        enseignant.setNom(enseignantDtoPost.getNom());
+        enseignant.setPrenom(enseignantDtoPost.getPrenom());
+        enseignant.setDateNaissance(LocalDate.parse(String.valueOf(enseignantDtoPost.getDateNaissance())));
+        enseignant.setPhoto(enseignantDtoPost.getPhoto());
+        enseignant.setAdresseMailEns(enseignantDtoPost.getAdresseMailEns());
+        enseignant.setDateEmbauche(LocalDate.parse(String.valueOf(enseignantDtoPost.getDateEmbauche())));
+        enseignant.setGrade(enseignantDtoPost.getGrade());
 
-
+        Optional<Departement> optionalDepartement = Optional.ofNullable(departementRepository.findDepartementByIdDep(enseignantDtoPost.getIdDepartement()));
+        if (optionalDepartement.isPresent())
+            enseignant.setDepartement(optionalDepartement.get());
+        else throw new IllegalStateException("Id du departement inexistant");
         enseignantRepository.save(enseignant);
     }
 }

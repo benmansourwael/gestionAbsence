@@ -5,8 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
+import org.hibernate.validator.constraints.NotBlank;
 
 import static org.hibernate.type.descriptor.java.DateTypeDescriptor.DATE_FORMAT;
 
@@ -16,19 +15,31 @@ import static org.hibernate.type.descriptor.java.DateTypeDescriptor.DATE_FORMAT;
 public class EtudiantDto {
 
     private int id;
+
+    @NotBlank(message = "Nom étudiant est obligatoire")
     private String nomEtd;
+
+    @NotBlank(message = "Prénom étudiant est obligatoire")
     private String prenomEtd;
+
+    @NotBlank(message = "Date naissance étudiant est obligatoire")
     @ApiModelProperty(required = true,example = "2022-09-15")
     @JsonFormat(pattern = DATE_FORMAT)
     private String dateNaissanceEtd;
+
     private String photoEtd;
+
+    @NotBlank(message = "Adresse email  étudiant est obligatoire")
     private String adresseMailEtd;
+
+
     private String numInscription;
-    private String password;
+
     @ApiModelProperty(required = true,example = "2022-09-15")
     @JsonFormat(pattern = DATE_FORMAT)
     private String dateInscription;
     private int au;
     private int idDepartement;
     private int idGroupe;
+
 }

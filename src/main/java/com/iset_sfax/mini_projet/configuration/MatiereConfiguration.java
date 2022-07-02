@@ -1,18 +1,18 @@
-//package com.javainuse.swaggertest.configuration;
+//package com.iset_sfax.mini_projet.configuration;
 //
-//import com.javainuse.swaggertest.entities.Matiere;
-//import com.javainuse.swaggertest.entities.SeanceCours;
-//import com.javainuse.swaggertest.repositories.MatiereRepository;
+//
+//import com.iset_sfax.mini_projet.entities.Matiere;
+//import com.iset_sfax.mini_projet.repositories.MatiereRepository;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
 //
-//import java.util.ArrayList;
-//
+//@Configuration
 //public class MatiereConfiguration {
 //    @Bean
-//    CommandLineRunner commandLineRunner(MatiereRepository repository){
-//        return args ->{
-//            repository.save(new Matiere("nomMat",  1.5F,  12.5F,  10.0F, new ArrayList<SeanceCours>()));
+//    CommandLineRunner commandLineRunner(MatiereRepository repository) {
+//        return args -> {
+//            repository.save(new Matiere(1, "nomMat", 1.5F, 12.5F, 10.0F));
 //
 //        };
 //    }

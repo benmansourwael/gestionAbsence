@@ -1,6 +1,7 @@
 package com.iset_sfax.mini_projet.controllers;
 
 import com.iset_sfax.mini_projet.dto.EtudiantDto;
+import com.iset_sfax.mini_projet.dto.post.EtudiantDtoPost;
 import com.iset_sfax.mini_projet.entities.Etudiant;
 import com.iset_sfax.mini_projet.services.EtudiantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class EtudiantController {
     }
 
     @PostMapping
-        public void addnewEtudiant(@RequestBody EtudiantDto etudiantDto) throws NoSuchAlgorithmException {
-        etudiantService.addnewEtudiant(etudiantDto);
+        public void addnewEtudiant(@RequestBody EtudiantDtoPost etudiantDtoPost) throws NoSuchAlgorithmException {
+        etudiantService.addnewEtudiant(etudiantDtoPost);
     }
 }
