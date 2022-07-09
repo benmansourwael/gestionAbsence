@@ -21,7 +21,7 @@ public class Assiduite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int assiduite_id;
+    private int assiduiteId;
 
     @NotBlank(message = "id etudiant est obligatoire")
     @ManyToOne
@@ -30,7 +30,7 @@ public class Assiduite {
 
     @NotBlank(message = "id etudiant est obligatoire")
     @ManyToOne
-    @JoinColumn(name = "idSeance")
+    @JoinColumn(name = "idSeanceCours")
     private SeanceCours seanceCours;
 
 

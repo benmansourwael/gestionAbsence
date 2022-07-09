@@ -30,4 +30,9 @@ public class DepartementController {
         departementService.addNewDepartement(departementDto);
     }
 
+    @DeleteMapping(path = "{departementId}")
+    public void deleteDepartement(@PathVariable("departementId") int idDep){
+        departementService.deleteDepartement(idDep);
+    }
+
 }

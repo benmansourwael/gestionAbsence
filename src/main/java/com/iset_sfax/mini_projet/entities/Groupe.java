@@ -35,10 +35,4 @@ public class Groupe {
     private Departement departement;
 
 
-//    public Groupe(String nomGroupe, LocalDate dateCreation, int au, Departement departement) {
-//        this.nomGroupe = nomGroupe;
-//        this.dateCreation = dateCreation;
-//        this.au = au;
-//        this.departement = departement;
-//    }
 }

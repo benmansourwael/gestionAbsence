@@ -29,4 +29,9 @@ public class AssiduiteController {
     public void addNewAssiduite(@RequestBody AssiduiteDto assiduiteDto){
         assiduiteService.addNewAssiduite(assiduiteDto);
     }
+
+//    @DeleteMapping( path="{assiduiteId}")
+//    public void deletAssiduite(@PathVariable("assiduiteId") int assiduiteId){
+//        assiduiteService.deleteAssiduite(assiduiteId);
+//    }
 }

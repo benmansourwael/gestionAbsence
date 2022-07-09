@@ -9,5 +9,7 @@ import java.util.Optional;
 public interface EnseignantRepository extends JpaRepository<Enseignant, Integer> {
     Enseignant findEnseignantByNumEns(int id);
 
-    Optional<Enseignant> findEnseignantByAdresseMailEnsAndPassword(String adresseMailEtd,String password);
+    Optional <Enseignant> findEnseignantByAdresseMailEns(String adresseMailEns);
+
+    Optional<Enseignant> findEnseignantByAdresseMailEnsAndPassword(String adresseMailEns,String password);
 }

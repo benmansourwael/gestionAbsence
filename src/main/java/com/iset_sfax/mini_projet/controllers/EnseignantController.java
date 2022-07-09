@@ -30,4 +30,9 @@ public class EnseignantController {
     public void addnewEnseignant(@RequestBody EnseignantDtoPost enseignantDtoPost){
         enseignantService.addnewEnseignant(enseignantDtoPost);
     }
+
+    @DeleteMapping(path = "{enseignantId}")
+    public void deleteEnseignant(@PathVariable("enseignantId") int numEns){
+        enseignantService.deleteEnseignant(numEns);
+    }
 }

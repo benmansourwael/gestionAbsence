@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DepartementService {
@@ -41,5 +42,14 @@ public class DepartementService {
         departement.setNomDep(departementDto.getNomDep());
         departement.setDateCreation(LocalDate.parse(String.valueOf(departementDto.getDateCreation())));
         departementRepository.save(departement);
+    }
+
+    public void deleteDepartement(int idDep) {
+        Optional<Departement> departementById = Optional.ofNullable(departementRepository.findDepartementByIdDep(idDep));
+        if(!departementById.isPresent()){
+            throw new IllegalStateException("Le departement avec l'identifiant "+ idDep +" n'existe pas");
+        }
+
+        departementRepository.delete(idDep);
     }
 }

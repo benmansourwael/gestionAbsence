@@ -52,6 +52,10 @@ public class EnseignantService {
     }
 
     public void addnewEnseignant(EnseignantDtoPost enseignantDtoPost) {
+        Optional<Enseignant> enseignantByEmail = enseignantRepository.findEnseignantByAdresseMailEns(enseignantDtoPost.getAdresseMailEns());
+        if (enseignantByEmail.isPresent()){
+            throw new IllegalStateException("Adresse email existante");
+        }
         Enseignant enseignant= new Enseignant();
         enseignant.setNumEns(enseignantDtoPost.getNumEns());
         enseignant.setNom(enseignantDtoPost.getNom());
@@ -67,5 +71,14 @@ public class EnseignantService {
             enseignant.setDepartement(optionalDepartement.get());
         else throw new IllegalStateException("Id du departement inexistant");
         enseignantRepository.save(enseignant);
+    }
+
+    public void deleteEnseignant(int numEns) {
+        Optional<Enseignant> enseignantById = Optional.ofNullable(enseignantRepository.findEnseignantByNumEns(numEns));
+        if(!enseignantById.isPresent()){
+            throw new IllegalStateException("L'enseignant avec l'identifiant "+ numEns +" n'existe pas");
+        }
+        enseignantRepository.delete(numEns);
+
     }
 }

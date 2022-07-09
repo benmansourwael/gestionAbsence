@@ -39,4 +39,9 @@ public class EtudiantController {
         public void addnewEtudiant(@RequestBody EtudiantDtoPost etudiantDtoPost) throws NoSuchAlgorithmException {
         etudiantService.addnewEtudiant(etudiantDtoPost);
     }
+
+    @DeleteMapping(path = "{etudiantId}")
+    public void deleteEtudiant(@PathVariable("etudiantId")int numEtd){
+        etudiantService.deleteEtudiant(numEtd);
+    }
 }

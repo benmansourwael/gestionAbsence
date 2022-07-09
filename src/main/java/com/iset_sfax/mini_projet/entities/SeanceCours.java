@@ -30,14 +30,5 @@ public class SeanceCours {
     @JoinColumn(name = "groupe_id")
     private Groupe groupe;
 
-    public SeanceCours(String dateJour, int creneauHoraire, boolean testEvaluation, Enseignant enseignant, Matiere matiere, Groupe groupe) {
-        this.dateJour = dateJour;
-        CreneauHoraire = creneauHoraire;
-        this.testEvaluation = testEvaluation;
-
-        this.enseignant = enseignant;
-        this.matiere = matiere;
-        this.groupe = groupe;
-    }
 }
 

@@ -48,18 +48,4 @@ public class Etudiant {
     @JoinColumn(name="groupe_id")
     private Groupe groupe;
 
-//    public Etudiant(int numEtd, String nomEtd, String prenomEtd, LocalDate dateNaissanceEtd, String photoEtd, String adresseMailEtd, String numInscription, LocalDate dateInscription, int au, Set<Assiduite> assiduites, Departement departement, Groupe groupe) {
-//
-//        this.nomEtd = nomEtd;
-//        this.prenomEtd = prenomEtd;
-//        this.dateNaissanceEtd = dateNaissanceEtd;
-//        this.photoEtd = photoEtd;
-//        this.adresseMailEtd = adresseMailEtd;
-//        this.numInscription = numInscription;
-//        this.dateInscription = dateInscription;
-//        this.au = au;
-//        this.assiduites = assiduites;
-//        this.departement = departement;
-//        this.groupe = groupe;
-//    }
 }

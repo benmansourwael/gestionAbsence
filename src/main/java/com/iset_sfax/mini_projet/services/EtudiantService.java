@@ -93,4 +93,13 @@ public class EtudiantService {
 
         return etudiantRepository.findEtudiantsByGroupe(groupeRepository.findGroupeByNomGroupe(GroupeName));
     }
+
+    public void deleteEtudiant(int numEtd) {
+        Optional<Etudiant> etudiantById = Optional.ofNullable(etudiantRepository.findEtudiantByNumEtd(numEtd));
+        if(!etudiantById.isPresent()){
+            throw new IllegalStateException("L'étudiant avec l'identifiant "+numEtd+" n'existe pas");
+        }
+
+        etudiantRepository.delete(numEtd);
+    }
 }
