@@ -6,7 +6,9 @@ import com.iset_sfax.mini_projet.repositories.MatiereRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MatiereService {
@@ -31,5 +33,14 @@ public class MatiereService {
         matiere.setNbreHeureTP(matiereDto.getNbreHeureTP());
         matiere.setNbreHeureCours(matiereDto.getNbreHeureCours());
         matiereRepository.save(matiere);
+    }
+
+    public void deleteMatiere(int idMat) {
+        Optional<Matiere> matiereById = Optional.ofNullable(matiereRepository.findMatiereByIdMat(idMat));
+        if(!matiereById.isPresent()){
+            throw new IllegalStateException("Le groupe avec l'identifiant "+idMat + " n'existe pas");
+        }
+        matiereRepository.delete(idMat);
+
     }
 }

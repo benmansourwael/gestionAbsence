@@ -7,9 +7,11 @@ import com.iset_sfax.mini_projet.repositories.GroupeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GroupeService {
@@ -50,5 +52,14 @@ public class GroupeService {
         groupe.setAu(groupeDto.getAu());
         groupe.setDepartement(departementRepository.findDepartementByIdDep(groupeDto.getIdDepartement()));
         groupeRepository.save(groupe);
+    }
+
+    public void deleteGroupe(int idGroupe) {
+        Optional<Groupe> groupeById = Optional.ofNullable(groupeRepository.findGroupeByIdGroupe(idGroupe));
+        if(!groupeById.isPresent()){
+            throw new IllegalStateException("Le groupe avec l'identifiant "+ idGroupe + " n'existe pas");
+        }
+        groupeRepository.delete(idGroupe);
+
     }
 }

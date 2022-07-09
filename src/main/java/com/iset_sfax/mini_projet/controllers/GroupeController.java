@@ -30,4 +30,10 @@ public class GroupeController {
         groupeService.addNewGroupe(groupeDto);
     }
 
+
+    @DeleteMapping(path = "{groupeId}")
+    public void deleteGroupe(@PathVariable("groupeId") int idGroupe){
+        groupeService.deleteGroupe(idGroupe);
+    }
+
 }

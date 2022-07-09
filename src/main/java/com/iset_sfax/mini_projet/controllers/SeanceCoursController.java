@@ -6,7 +6,6 @@ import com.iset_sfax.mini_projet.services.SeanceCoursService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,14 +22,19 @@ public class SeanceCoursController {
 
 
     @GetMapping
-    public List<SeanceCours> getSeancesCours(){
+    public List<SeanceCours> getSeancesCours() {
 
         return seanceCoursService.getSeancesCours();
     }
 
     @PostMapping
-    public void addNewSeanceCours(@RequestBody SeanceCoursDto seanceCoursDto){
+    public void addNewSeanceCours(@RequestBody SeanceCoursDto seanceCoursDto) {
         seanceCoursService.addNewSeanceCours(seanceCoursDto);
+    }
+
+    @DeleteMapping(path = "{seanceCoursId}")
+    public void deleteSeanceCours(@PathVariable("seanceCoursId") int idSeance){
+        seanceCoursService.deleteSeanceCours(idSeance);
     }
 
 

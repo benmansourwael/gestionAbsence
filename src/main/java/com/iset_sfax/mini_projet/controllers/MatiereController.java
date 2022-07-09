@@ -30,4 +30,12 @@ public class MatiereController {
     public void addNewMatiere(@RequestBody MatiereDto matiereDto){
         matiereService.addNewMatiere(matiereDto);
     }
+
+    @DeleteMapping(path = "{matiereId}")
+    public void deleteMatiere(@PathVariable("matiereId") int idMat){
+        matiereService.deleteMatiere(idMat);
+    }
+
 }
+
+

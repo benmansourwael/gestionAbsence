@@ -19,15 +19,5 @@ public class Matiere  {
     @Column(name = "nbre_heure_TP")
     private float nbreHeureTP;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "matiere",fetch = FetchType.LAZY)
-//    private List<SeanceCours> seancescours;
 
-    public Matiere(String nomMat, float coefMat, float nbreHeureCours, float nbreHeureTP) {
-        this.nomMat = nomMat;
-        this.coefMat = coefMat;
-        this.nbreHeureCours = nbreHeureCours;
-        this.nbreHeureTP = nbreHeureTP;
-
-    }
 }

@@ -20,18 +20,11 @@ public class Groupe {
     private String nomGroupe;
     private LocalDate dateCreation;
     private int au;
-//    @JsonIgnore
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "numEtd")
-//    private List<Etudiant> etudiants;
-//    @JsonIgnore
-//    @OneToMany(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "idSeance")
-//    private List<SeanceCours> seancescours;
+
 
 
     @ManyToOne
-    @JoinColumn(name="departement_id")
+    @JoinColumn(name="idDep")
     private Departement departement;
 
 
