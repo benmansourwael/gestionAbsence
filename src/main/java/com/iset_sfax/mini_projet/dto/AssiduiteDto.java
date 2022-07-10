@@ -10,6 +10,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @NoArgsConstructor
 public class AssiduiteDto {
 
+    @NotBlank(message = "id etudiant est obligatoire")
     private int idEtudiant;
     @NotBlank(message = "Id seance cours est obligatoire")
     private int idSeanceCours;
