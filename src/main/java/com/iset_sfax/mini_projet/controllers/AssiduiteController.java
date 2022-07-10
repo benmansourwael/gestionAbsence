@@ -30,8 +30,8 @@ public class AssiduiteController {
         assiduiteService.addNewAssiduite(assiduiteDto);
     }
 
-//    @DeleteMapping( path="{assiduiteId}")
-//    public void deletAssiduite(@PathVariable("assiduiteId") int assiduiteId){
-//        assiduiteService.deleteAssiduite(assiduiteId);
-//    }
+    @DeleteMapping( path="{assiduiteId}")
+    public void deleteAssiduite(@PathVariable("assiduiteId") int assiduiteId){
+        assiduiteService.deleteAssiduite(assiduiteId);
+    }
 }

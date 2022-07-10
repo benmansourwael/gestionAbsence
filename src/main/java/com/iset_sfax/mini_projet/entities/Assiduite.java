@@ -2,9 +2,9 @@ package com.iset_sfax.mini_projet.entities;
 
 
 import lombok.*;
-import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Setter
@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Assiduite {
+public class Assiduite implements Serializable {
 
 
 //    @EmbeddedId
@@ -23,27 +23,20 @@ public class Assiduite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int assiduiteId;
 
-    @NotBlank(message = "id etudiant est obligatoire")
+    //    @NotBlank(message = "id etudiant est obligatoire")
     @ManyToOne
     @JoinColumn(name = "numEtd")
-        private Etudiant etudiant;
+    private Etudiant etudiant;
 
-    @NotBlank(message = "id etudiant est obligatoire")
+    //    @NotBlank(message = "id etudiant est obligatoire")
     @ManyToOne
-    @JoinColumn(name = "idSeanceCours")
+    @JoinColumn(name = "idSeance")
     private SeanceCours seanceCours;
-
-
 
 
     private boolean absent;
     private float noteTest;
     private String remarques;
-
-
-
-
-
 
 
 }
