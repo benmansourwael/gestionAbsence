@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Implementation-Title: springboot-swagger-test
+Implementation-Version: 0.0.1-SNAPSHOT
+Archiver-Version: Plexus Archiver
+Built-By: wael
+Implementation-Vendor-Id: com.javainuse
+Spring-Boot-Version: 1.4.1.RELEASE
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: org.springframework.boot.loader.WarLauncher
+Start-Class: com.iset_sfax.mini_projet.Application
+Spring-Boot-Classes: WEB-INF/classes/
+Spring-Boot-Lib: WEB-INF/lib/
+Created-By: Apache Maven 3.8.1
+Build-Jdk: 1.8.0_312
+Implementation-URL: http://projects.spring.io/spring-boot/springboot-s
+ wagger-test/
+

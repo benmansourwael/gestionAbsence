@@ -22,10 +22,29 @@ public class SeanceCoursController {
 
 
     @GetMapping
-    public List<SeanceCours> getSeancesCours() {
+    public List<SeanceCoursDto> getSeancesCours() {
 
         return seanceCoursService.getSeancesCours();
     }
+
+
+    @GetMapping(path = "/etudiant/{etudiantId}")
+    public List<SeanceCoursDto> getSeancesCoursByEtudiantId(@PathVariable("etudiantId") int etudiantId) {
+
+        return seanceCoursService.getSeancesCoursByEtudiantId(etudiantId);
+    }
+
+    @GetMapping(path = "{seanceCoursId}")
+    public SeanceCoursDto getSeanceCoursById(@PathVariable("seanceCoursId") int idSeance){
+        return seanceCoursService.getSeanceCoursById(idSeance);
+    }
+
+
+    @GetMapping(path = "/groupe/")
+    public int getSeanceCourIndex0(){
+        return seanceCoursService.getSeanceCourIndex0();
+    }
+
 
     @PostMapping
     public void addNewSeanceCours(@RequestBody SeanceCoursDto seanceCoursDto) {

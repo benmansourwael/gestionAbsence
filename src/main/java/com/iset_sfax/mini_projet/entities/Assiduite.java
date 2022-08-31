@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Setter
@@ -22,18 +23,14 @@ public class Assiduite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int assiduiteId;
-
     //    @NotBlank(message = "id etudiant est obligatoire")
     @ManyToOne
     @JoinColumn(name = "numEtd")
     private Etudiant etudiant;
-
     //    @NotBlank(message = "id etudiant est obligatoire")
     @ManyToOne
     @JoinColumn(name = "idSeance")
     private SeanceCours seanceCours;
-
-
     private boolean absent;
     private float noteTest;
     private String remarques;

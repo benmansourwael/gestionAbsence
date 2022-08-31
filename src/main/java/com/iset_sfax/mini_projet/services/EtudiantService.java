@@ -38,6 +38,7 @@ public class EtudiantService {
 
     public void addnewEtudiant(EtudiantDtoPost etudiantDtoPost) throws NoSuchAlgorithmException {
 
+
         Optional<Etudiant> etudiantByEmail = etudiantRepository.findEtudiantByAdresseMailEtd(etudiantDtoPost.getAdresseMailEtd());
         if (etudiantByEmail.isPresent()){
             throw new IllegalStateException("Adresse email existante");
@@ -48,9 +49,10 @@ public class EtudiantService {
         etudiant.setPrenomEtd(etudiantDtoPost.getPrenomEtd());
         etudiant.setDateNaissanceEtd(LocalDate.parse(String.valueOf(etudiantDtoPost.getDateNaissanceEtd())));
         etudiant.setPhotoEtd(etudiantDtoPost.getPhotoEtd());
-        etudiant.setAdresseMailEtd(etudiant.getAdresseMailEtd());
+
+        etudiant.setAdresseMailEtd(etudiantDtoPost.getAdresseMailEtd());
         etudiant.setNumInscription(etudiantDtoPost.getNumInscription());
-        etudiant.setPassword(Util.toSha256(etudiantDtoPost.getPassword()));
+        etudiant.setPassword(etudiantDtoPost.getPassword());
 
         etudiant.setDateInscription(LocalDate.parse(String.valueOf(etudiantDtoPost.getDateInscription())));
         etudiant.setAu(etudiantDtoPost.getAu());
@@ -101,5 +103,32 @@ public class EtudiantService {
         }
 
         etudiantRepository.delete(numEtd);
+    }
+
+    public List<EtudiantDto> getEtudiantsByGroupeId(int groupeId) {
+
+        List<Etudiant> etudiantByGroupeId = etudiantRepository.findEtudiantsByGroupe(groupeRepository.findGroupeByIdGroupe(groupeId));
+//        if(!etudiantByGroupeId.isPresent()){
+//            throw new IllegalStateException("L'identifiant du groupe est inexistant");
+//        }
+        List<EtudiantDto> etudiantList = new ArrayList<>();
+
+        for (Etudiant etudiant :  etudiantByGroupeId) {
+            EtudiantDto etudiantDto = new EtudiantDto();
+            etudiantDto.setId(etudiant.getNumEtd());
+            etudiantDto.setNomEtd(etudiant.getNomEtd());
+            etudiantDto.setPrenomEtd(etudiant.getPrenomEtd());
+            etudiantDto.setDateNaissanceEtd(String.valueOf(etudiant.getDateNaissanceEtd()));
+            etudiantDto.setPhotoEtd(etudiant.getPhotoEtd());
+            etudiantDto.setAdresseMailEtd(etudiant.getAdresseMailEtd());
+            etudiantDto.setNumInscription(etudiant.getNumInscription());
+            etudiantDto.setDateInscription(String.valueOf(etudiant.getDateInscription()));
+            etudiantDto.setAu(etudiant.getAu());
+            etudiantDto.setIdDepartement(etudiant.getDepartement().getIdDep());
+            etudiantDto.setIdGroupe(etudiant.getGroupe().getIdGroupe());
+            etudiantList.add(etudiantDto);
+        }
+        return etudiantList;
+
     }
 }

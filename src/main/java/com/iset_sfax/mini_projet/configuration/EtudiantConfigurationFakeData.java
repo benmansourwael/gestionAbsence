@@ -43,7 +43,7 @@
 //    @Bean
 //    public List<Etudiant> addStudents(EtudiantRepository etudiantRepository, DepartementRepository departementRepository, GroupeRepository groupeRepository) {
 //        List<Etudiant> etudiantList = new ArrayList<>();
-//        for (int w = 0; w < 25; w++) {
+//        for (int w = 0; w < 5; w++) {
 //            String url = "https://randomuser.me/api/";
 //            JSONObject jsonObject = new JSONObject(this.restTemplate.getForObject(url, String.class));
 //
@@ -78,6 +78,8 @@
 //                etudiant.setDateInscription(ddi);
 //                etudiant.setAu(au);
 //                etudiant.setAssiduites(assiduiteSet);
+//                System.out.println("Wael Wael Wael");
+//                System.out.println(departementRepository.findDepartementByIdDep(1));
 //                etudiant.setDepartement(departementRepository.findDepartementByIdDep(1));
 //                etudiant.setGroupe(groupeRepository.findGroupeByIdGroupe(1));
 //            }

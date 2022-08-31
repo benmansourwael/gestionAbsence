@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springboot-swagger-test:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>springboot-swagger-test</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="springboot-swagger-test-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="springboot-swagger-test:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -46,6 +46,11 @@ public class Departement {
         this.groupes = groupes;
         this.etudiants = etudiants;
     }
+
+    public Departement(String nomDep, LocalDate dateCreation){
+        this.nomDep = nomDep;
+        this.dateCreation = dateCreation;
+    }
 //    public Departement(int idDep, String nomDep, LocalDate dateCreation) {
 //        this.idDep = idDep;
 //        this.nomDep = nomDep;

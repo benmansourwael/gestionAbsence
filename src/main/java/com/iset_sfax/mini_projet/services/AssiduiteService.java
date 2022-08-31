@@ -34,11 +34,11 @@ public class AssiduiteService {
 
         Assiduite assiduite = new Assiduite();
         assiduite.setEtudiant(etudiantRepository.findEtudiantByNumEtd(assiduiteDto.getIdEtudiant()));
-        Optional <SeanceCours> seanceCoursOptionalById = seanceCoursRepository.findSeanceCoursByIdSeance(assiduiteDto.getIdSeanceCours());
-        if (!seanceCoursOptionalById.isPresent()){
+        SeanceCours seanceCoursOptionalById = seanceCoursRepository.findSeanceCoursByIdSeance(assiduiteDto.getIdSeanceCours());
+        if (seanceCoursOptionalById!=null){
             throw new IllegalStateException("Identifiant de séance cours non existant");
         }
-        assiduite.setSeanceCours(seanceCoursOptionalById.get());
+        assiduite.setSeanceCours(seanceCoursOptionalById);
         assiduite.setAbsent(assiduiteDto.isAbsent());
         assiduite.setNoteTest(assiduiteDto.getNoteTest());
         assiduite.setRemarques(assiduiteDto.getRemarques());

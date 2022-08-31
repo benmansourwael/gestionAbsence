@@ -25,6 +25,14 @@ public class GroupeController {
         return groupeService.getGroupes();
     }
 
+    @GetMapping(path = "{groupeId}")
+    public GroupeDto getGroupeById(@PathVariable("groupeId") int idGroupe){
+
+        return groupeService.getGroupeById(idGroupe);
+    }
+
+
+
     @PostMapping
     public void addNewGroupe(@RequestBody GroupeDto groupeDto){
         groupeService.addNewGroupe(groupeDto);
@@ -35,5 +43,7 @@ public class GroupeController {
     public void deleteGroupe(@PathVariable("groupeId") int idGroupe){
         groupeService.deleteGroupe(idGroupe);
     }
+
+
 
 }

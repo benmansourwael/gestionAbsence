@@ -26,13 +26,8 @@ public class Etudiant {
     private LocalDate dateNaissanceEtd;
     private String photoEtd;
     private String adresseMailEtd;
-
-
-
     private String numInscription;
-
     private String password;
-
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate dateInscription;
     private int au;

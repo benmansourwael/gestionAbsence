@@ -4,6 +4,7 @@ import com.iset_sfax.mini_projet.entities.Etudiant;
 import com.iset_sfax.mini_projet.entities.Groupe;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,11 @@ public interface EtudiantRepository extends JpaRepository<Etudiant,Integer> {
     List<Etudiant> findEtudiantsByGroupe(Groupe groupe);
 
     Optional<Etudiant> findEtudiantByAdresseMailEtdAndPassword(String adresseMailEtd,String password );
+
+    //Optional<Etudiant> findEtudiantsByGroupeIdGroupe(int GroupeId);
+
+
+
 
 
 

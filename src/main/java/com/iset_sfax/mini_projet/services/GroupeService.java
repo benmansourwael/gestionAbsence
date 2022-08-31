@@ -62,4 +62,16 @@ public class GroupeService {
         groupeRepository.delete(idGroupe);
 
     }
+
+    public GroupeDto getGroupeById(int idGroupe) {
+        GroupeDto groupeDto = new GroupeDto();
+      Groupe groupe= groupeRepository.findGroupeByIdGroupe(idGroupe);
+      groupeDto.setAu(groupe.getAu());
+      groupeDto.setNomGroupe(groupe.getNomGroupe());
+      groupeDto.setIdGroupe(groupe.getIdGroupe());
+      groupeDto.setDateCreation(String.valueOf(groupe.getDateCreation()));
+      groupeDto.setIdDepartement(groupe.getDepartement().getIdDep());
+      return groupeDto;
+
+    }
 }

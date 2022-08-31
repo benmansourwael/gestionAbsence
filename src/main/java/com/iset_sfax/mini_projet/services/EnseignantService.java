@@ -65,6 +65,7 @@ public class EnseignantService {
         enseignant.setAdresseMailEns(enseignantDtoPost.getAdresseMailEns());
         enseignant.setDateEmbauche(LocalDate.parse(String.valueOf(enseignantDtoPost.getDateEmbauche())));
         enseignant.setGrade(enseignantDtoPost.getGrade());
+        enseignant.setPassword(enseignantDtoPost.getPassword());
 
         Optional<Departement> optionalDepartement = Optional.ofNullable(departementRepository.findDepartementByIdDep(enseignantDtoPost.getIdDepartement()));
         if (optionalDepartement.isPresent())

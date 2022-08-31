@@ -24,7 +24,7 @@
 //        return args -> {
 //
 //            List<Departement> departementList = new ArrayList<>();
-//            departementList.add(new Departement(1,"Mécanique",LocalDate.parse("1992-05-25"),new ArrayList<Enseignant>(),new ArrayList<Groupe>(), new ArrayList<Etudiant>()));
+//            departementList.add(new Departement("Mécanique",LocalDate.parse("1992-05-25")));
 //
 //            departementRepository.save(departementList);
 //
