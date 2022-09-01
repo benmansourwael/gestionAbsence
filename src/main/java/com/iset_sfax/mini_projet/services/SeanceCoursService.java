@@ -107,16 +107,16 @@ public class SeanceCoursService {
 
     }
 
-    public int getSeanceCourIndex0() {
-        int NumeroGroupe =  seanceCoursRepository.findFirstElement();
-//        SeanceCoursDto seanceCoursDto = new SeanceCoursDto();
-//        seanceCoursDto.setIdSeance(seanceCours.getIdSeance());
-//        seanceCoursDto.setCreneauHoraire(seanceCours.getCreneauHoraire());
-//        seanceCoursDto.setIdGroupe(seanceCours.getGroupe().getIdGroupe());
-//        seanceCoursDto.setIdMatiere(seanceCours.getMatiere().getIdMat());
-//        seanceCoursDto.setIdEnseignant(seanceCours.getEnseignant().getNumEns());
-//        seanceCoursDto.setDateJour(seanceCours.getDateJour());
-//        seanceCoursDto.setTestEvaluation(seanceCours.isTestEvaluation());
-        return NumeroGroupe;
+    public SeanceCoursDto getSeanceCourIndex0() {
+        SeanceCours seanceCours =  seanceCoursRepository.findFirstElement();
+        SeanceCoursDto seanceCoursDto = new SeanceCoursDto();
+        seanceCoursDto.setIdSeance(seanceCours.getIdSeance());
+        seanceCoursDto.setCreneauHoraire(seanceCours.getCreneauHoraire());
+        seanceCoursDto.setIdGroupe(seanceCours.getGroupe().getIdGroupe());
+        seanceCoursDto.setIdMatiere(seanceCours.getMatiere().getIdMat());
+        seanceCoursDto.setIdEnseignant(seanceCours.getEnseignant().getNumEns());
+        seanceCoursDto.setDateJour(seanceCours.getDateJour());
+        seanceCoursDto.setTestEvaluation(seanceCours.isTestEvaluation());
+        return seanceCoursDto;
     }
 }

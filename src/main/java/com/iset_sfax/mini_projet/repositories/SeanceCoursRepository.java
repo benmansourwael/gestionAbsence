@@ -11,8 +11,8 @@ import java.util.Optional;
 public interface SeanceCoursRepository extends JpaRepository<SeanceCours, Integer> {
     SeanceCours findSeanceCoursByIdSeance(int id);
 
-    @Query( value = "SELECT groupe_id FROM seance_cours ORDER BY id_seance ASC LIMIT 1" , nativeQuery = true)
-    int findFirstElement();
+    @Query( value = "SELECT * FROM seance_cours ORDER BY id_seance ASC LIMIT 1" , nativeQuery = true)
+    SeanceCours findFirstElement();
 
 
 

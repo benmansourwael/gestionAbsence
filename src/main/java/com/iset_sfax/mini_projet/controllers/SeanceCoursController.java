@@ -41,7 +41,7 @@ public class SeanceCoursController {
 
 
     @GetMapping(path = "/groupe/")
-    public int getSeanceCourIndex0(){
+    public SeanceCoursDto getSeanceCourIndex0(){
         return seanceCoursService.getSeanceCourIndex0();
     }
 
